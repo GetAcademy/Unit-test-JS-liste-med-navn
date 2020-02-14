@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="controller.js"></script>
+    <script>
+        let list;
+        function updateView(){}
+
+        QUnit.test("slette", function (assert) {
+            list = ['Fredrik', 'Even', 'Therese', 'Terje'];
+            deleteName(1);
+            let expectedList =  ['Fredrik', 'Therese', 'Terje']
+            assert.deepEqual(list, expectedList);
+        });
+
+        QUnit.test("legge til", function (assert) {
+            list = [];
+            addName('Terje');
+            let expectedList =  ['Terje']
+            assert.deepEqual(list, expectedList);
+        });
+
+        QUnit.test("legge til 2", function (assert) {
+            list = ['Per'];
+            addName('Terje');
+            let expectedList =  ['Terje', 'Per']
+            assert.deepEqual(list, expectedList);
+        });
+
+    </script>
+</body>
+
+</html>

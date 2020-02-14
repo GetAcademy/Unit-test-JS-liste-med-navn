@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="controller.js"></script>
+</head>
+
+<body>
+    <div id="content"></div>
+
+    <input type="text" id="name"/><button onclick="addName(getValue('name'))">Legg til navn</button>
+    <script>
+        // model
+        // indeksene    0         1       2          3            - length = 4
+        let list = ['Fredrik', 'Even', 'Therese', 'Terje'];
+
+        // view
+        updateView();
+        function updateView() {
+            let html = '';
+            for (let i = 0; i < list.length; i++) {
+                let name = list[i];
+                html += `<li>${name} <button onclick="deleteName(${i})">x</button></li>`;
+            }
+            document.getElementById('content').innerHTML = html;
+        }
+
+        function getValue(id){
+            return document.getElementById(id).value;
+        }
+
+
+
+        // function count(start, stop, increment) {
+        //     for (i = start; i < stop; i += increment) {
+        //         console.log('hei ' + i);
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
